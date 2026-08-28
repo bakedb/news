@@ -1,7 +1,7 @@
 ---
 layout: article.njk
-title: "Very Cool Test Article (not clickbait)"
-description: "This is a test article description."
+title: "Aliexpress Fingerprints Users"
+description: "Aliexpress caught tracking users using sounds in the browser"
 date: 2026-08-27
 ---
 
