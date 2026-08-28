@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
-  // Pass post files into a "posts" collection sorted by date
+  eleventyConfig.addPassthroughCopy("src/images");
+
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/posts/*.md").reverse();
   });
