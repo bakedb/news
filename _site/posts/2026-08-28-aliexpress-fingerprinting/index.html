@@ -5,6 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aliexpress Caught Fingerprinting Users</title>
+
+  <!-- 1. Run theme check BEFORE rendering CSS to prevent white flash -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <!-- 2. Tailwind CDN with explicit config -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -30,22 +41,32 @@
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
-    <article class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-  <header class="mb-6">
-    <h1 class="text-3xl font-extrabold text-gray-900 mb-2 leading-tight">Aliexpress Caught Fingerprinting Users</h1>
-    <time class="text-sm text-gray-400 font-medium">Thu Aug 27 2026</time>
-  </header>
-  
-  <div class="prose prose-blue max-w-none text-gray-700 leading-relaxed">
-    <p>The popular Alibaba-owned online shopping marketplace Aliexpress has been under investigation for using fingerprinting tactics, such as using an almost silent sound through your browser window to detect variation in the output caused by differences in hardware. This alongside other existing data such as the user's browser and operating system can be used to fingerprint their device and tracked across sessions. Mozilla, the company behind Firefox, has stated that their protections blocked Aliexpress from receiving the needed data, alongside the Brave browser. Most other Chromium-based browsers with lesser security such as Google Chrome, Microsoft Edge, and  all versions of Opera have been left vulnerable to this tactic and others deployed by Aliexpress.</p>
+    <article
+  class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-200">
 
+  
+  <div class="w-full h-64 md:h-80 overflow-hidden bg-gray-100 dark:bg-gray-900">
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloudfront-us-east-2.images.arcpublishing.com%2Freuters%2FMP6H46MMKNPKRH2S6WLECHKTOA.jpg&amp;f=1&amp;nofb=1&amp;ipt=d3c667cd36425316abb422feaa808449513d80300b35e17f3b006bd3fe7e3a0a" alt="Shopping cart with AliExpress logo in the background" class="w-full h-full object-cover" />
   </div>
   
-  <div class="mt-8 pt-6 border-t border-gray-100">
-    <a href="/news/" class="text-sm font-semibold text-blue-600 hover:underline">Back to News Feed</a>
+
+  <div class="p-8">
+    <header class="mb-6">
+      <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">Aliexpress Caught Fingerprinting Users</h1>
+      <time class="text-sm text-gray-400 dark:text-gray-400 font-medium">Thu Aug 27 2026</time>
+    </header>
+
+    <div class="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
+      <p>The popular Alibaba-owned online shopping marketplace Aliexpress has been under investigation for using fingerprinting tactics, such as using an almost silent sound through your browser window to detect variation in the output caused by differences in hardware. This alongside other existing data such as the user's browser and operating system can be used to fingerprint their device and tracked across sessions. Mozilla, the company behind Firefox, has stated that their protections blocked Aliexpress from receiving the needed data, alongside the Brave browser. Most other Chromium-based browsers with lesser security such as Google Chrome, Microsoft Edge, and  all versions of Opera have been left vulnerable to this tactic and others deployed by Aliexpress.</p>
+
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <a href="/news/" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">Back to
+        News Feed</a>
+    </div>
   </div>
 </article>
-
   </main>
 
   <footer
@@ -56,13 +77,6 @@
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
 
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    // Toggle setting on button click
     toggleBtn.addEventListener('click', () => {
       if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');

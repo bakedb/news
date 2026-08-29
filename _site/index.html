@@ -5,6 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeanNet News</title>
+
+  <!-- 1. Run theme check BEFORE rendering CSS to prevent white flash -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <!-- 2. Tailwind CDN with explicit config -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -30,24 +41,44 @@
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
-    <h2 class="text-lg font-bold text-gray-400 uppercase tracking-wider mb-6">Latest Articles</h2>
+    <h2 class="text-lg font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-6">Latest Articles</h2>
 
 <div class="space-y-4">
   
-    <a href="/news/posts/2026-08-28-aliexpress-fingerprinting/" class="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 hover:shadow-md transition">
-      <span class="text-xs font-semibold text-gray-400 uppercase">Thu Aug 27 2026</span>
-      <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Aliexpress Caught Fingerprinting Users</h3>
-      <p class="text-gray-600 text-sm line-clamp-2">Aliexpress caught using sounds in the user&#39;s browser to track people across sessions</p>
-    </a>
+  <a href="/news/posts/2026-08-28-aliexpress-fingerprinting/"
+    class="flex flex-col sm:flex-row bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition overflow-hidden">
+
+    
+    
+    <div class="sm:w-48 h-48 sm:h-auto flex-shrink-0 bg-gray-100 dark:bg-gray-900">
+      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloudfront-us-east-2.images.arcpublishing.com%2Freuters%2FMP6H46MMKNPKRH2S6WLECHKTOA.jpg&amp;f=1&amp;nofb=1&amp;ipt=d3c667cd36425316abb422feaa808449513d80300b35e17f3b006bd3fe7e3a0a" alt="Shopping cart with AliExpress logo in the background"
+        class="w-full h-full object-cover" />
+    </div>
+    
+
+    <div class="p-6 flex-grow">
+      <span class="text-xs font-semibold text-gray-400 dark:text-gray-400 uppercase">Thu Aug 27 2026</span>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1 mb-2">Aliexpress Caught Fingerprinting Users</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">Aliexpress caught using sounds in the user&#39;s browser to track people across sessions</p>
+    </div>
+
+  </a>
   
-    <a href="/news/posts/2026-08-27-test-article/" class="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 hover:shadow-md transition">
-      <span class="text-xs font-semibold text-gray-400 uppercase">Wed Aug 26 2026</span>
-      <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Very Cool Test Article (not clickbait)</h3>
-      <p class="text-gray-600 text-sm line-clamp-2">This is a test article description.</p>
-    </a>
+  <a href="/news/posts/2026-08-27-test-article/"
+    class="flex flex-col sm:flex-row bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition overflow-hidden">
+
+    
+    
+
+    <div class="p-6 flex-grow">
+      <span class="text-xs font-semibold text-gray-400 dark:text-gray-400 uppercase">Wed Aug 26 2026</span>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1 mb-2">Very Cool Test Article (not clickbait)</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">This is a test article description.</p>
+    </div>
+
+  </a>
   
 </div>
-
   </main>
 
   <footer
@@ -58,13 +89,6 @@
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
 
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    // Toggle setting on button click
     toggleBtn.addEventListener('click', () => {
       if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');

@@ -5,6 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Very Cool Test Article (not clickbait)</title>
+
+  <!-- 1. Run theme check BEFORE rendering CSS to prevent white flash -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <!-- 2. Tailwind CDN with explicit config -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -30,14 +41,19 @@
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
-    <article class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-  <header class="mb-6">
-    <h1 class="text-3xl font-extrabold text-gray-900 mb-2 leading-tight">Very Cool Test Article (not clickbait)</h1>
-    <time class="text-sm text-gray-400 font-medium">Wed Aug 26 2026</time>
-  </header>
+    <article
+  class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-200">
+
   
-  <div class="prose prose-blue max-w-none text-gray-700 leading-relaxed">
-    <p>This is testing <em>markdown</em> formatting.</p>
+
+  <div class="p-8">
+    <header class="mb-6">
+      <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">Very Cool Test Article (not clickbait)</h1>
+      <time class="text-sm text-gray-400 dark:text-gray-400 font-medium">Wed Aug 26 2026</time>
+    </header>
+
+    <div class="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
+      <p>This is testing <em>markdown</em> formatting.</p>
 <h3>Here is a heading:</h3>
 <ul>
 <li>And here is a list</li>
@@ -48,13 +64,14 @@
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/bakedb/news/main/src/images/testimage.jpg" alt="Image Description"></p>
 
-  </div>
-  
-  <div class="mt-8 pt-6 border-t border-gray-100">
-    <a href="/news/" class="text-sm font-semibold text-blue-600 hover:underline">Back to News Feed</a>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+      <a href="/news/" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">Back to
+        News Feed</a>
+    </div>
   </div>
 </article>
-
   </main>
 
   <footer
@@ -65,13 +82,6 @@
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
 
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
-    // Toggle setting on button click
     toggleBtn.addEventListener('click', () => {
       if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');
