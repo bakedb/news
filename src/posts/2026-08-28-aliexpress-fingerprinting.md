@@ -7,4 +7,8 @@ cover: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcloudfront-u
 coverAlt: "Shopping cart with AliExpress logo in the background"
 ---
 
-The popular Alibaba-owned online shopping marketplace Aliexpress has been under investigation for using fingerprinting tactics, such as using an almost silent sound through your browser window to detect variation in the output caused by differences in hardware. This alongside other existing data such as the user's browser and operating system can be used to fingerprint their device and tracked across sessions. Mozilla, the company behind Firefox, has stated that their protections blocked Aliexpress from receiving the needed data, alongside the Brave browser. Most other Chromium-based browsers with lesser security such as Google Chrome, Microsoft Edge, and  all versions of Opera have been left vulnerable to this tactic and others deployed by Aliexpress.
+The popular Alibaba-owned online shopping marketplace Aliexpress has been under investigation for using fingerprinting tactics, such as using an almost silent sound through your browser window to detect variation in the output caused by differences in hardware. This alongside other existing data such as the user's browser and operating system can be used to fingerprint their device and tracked across sessions. Tom Ritter, a Firefox developer and Tor Project contributer, has stated that their protections largely blocked the attempts:
+
+> browser fingerprinting is a far-too-pervasive method of tracking users across the web, but at least for WebAudio specifically, it's not very effective. Firefox has largely eliminated this fingerprinting vector. ([ritter.vg](https://ritter.vg/blog-webaudio_alibaba.html), 20 August 2026)
+
+Most Chromium-based browsers with lesser security such as Google Chrome, Microsoft Edge, and Opera have been left vulnerable to this tactic and others deployed by Aliexpress.
