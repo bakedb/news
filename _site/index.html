@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or "BeanNet News" }}</title>
+  <title>BeanNet News</title>
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -17,10 +17,11 @@
   class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
   <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-6">
     <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
-      <a href="{{ '/' | url }}"
-    <img src=""
-    </a>
+      <a href="/news/"
+        class="text-2xl font-black tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">BeanNet
+        News</a>
 
+      <!-- Theme Toggle Button -->
       <button id="theme-toggle" type="button" aria-label="Toggle theme"
         class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-semibold transition">
         <span id="theme-toggle-text">Theme</span>
@@ -29,7 +30,24 @@
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
-    {{ content | safe }}
+    <h2 class="text-lg font-bold text-gray-400 uppercase tracking-wider mb-6">Latest Articles</h2>
+
+<div class="space-y-4">
+  
+    <a href="/news/posts/2026-08-28-aliexpress-fingerprinting/" class="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 hover:shadow-md transition">
+      <span class="text-xs font-semibold text-gray-400 uppercase">Thu Aug 27 2026</span>
+      <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Aliexpress Caught Fingerprinting Users</h3>
+      <p class="text-gray-600 text-sm line-clamp-2">Aliexpress caught using sounds in the user&#39;s browser to track people across sessions</p>
+    </a>
+  
+    <a href="/news/posts/2026-08-27-test-article/" class="block p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 hover:shadow-md transition">
+      <span class="text-xs font-semibold text-gray-400 uppercase">Wed Aug 26 2026</span>
+      <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Very Cool Test Article (not clickbait)</h3>
+      <p class="text-gray-600 text-sm line-clamp-2">This is a test article description.</p>
+    </a>
+  
+</div>
+
   </main>
 
   <footer
@@ -46,6 +64,7 @@
       document.documentElement.classList.remove('dark');
     }
 
+    // Toggle setting on button click
     toggleBtn.addEventListener('click', () => {
       if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');

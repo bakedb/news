@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or "BeanNet News" }}</title>
+  <title>Aliexpress Caught Fingerprinting Users</title>
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -17,10 +17,11 @@
   class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
   <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-6">
     <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
-      <a href="{{ '/' | url }}"
-    <img src=""
-    </a>
+      <a href="/news/"
+        class="text-2xl font-black tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">BeanNet
+        News</a>
 
+      <!-- Theme Toggle Button -->
       <button id="theme-toggle" type="button" aria-label="Toggle theme"
         class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-semibold transition">
         <span id="theme-toggle-text">Theme</span>
@@ -29,7 +30,22 @@
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
-    {{ content | safe }}
+    <article class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+  <header class="mb-6">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-2 leading-tight">Aliexpress Caught Fingerprinting Users</h1>
+    <time class="text-sm text-gray-400 font-medium">Thu Aug 27 2026</time>
+  </header>
+  
+  <div class="prose prose-blue max-w-none text-gray-700 leading-relaxed">
+    <p>The popular Alibaba-owned online shopping marketplace Aliexpress has been under investigation for using fingerprinting tactics, such as using an almost silent sound through your browser window to detect variation in the output caused by differences in hardware. This alongside other existing data such as the user's browser and operating system can be used to fingerprint their device and tracked across sessions. Mozilla, the company behind Firefox, has stated that their protections blocked Aliexpress from receiving the needed data, alongside the Brave browser. Most other Chromium-based browsers with lesser security such as Google Chrome, Microsoft Edge, and  all versions of Opera have been left vulnerable to this tactic and others deployed by Aliexpress.</p>
+
+  </div>
+  
+  <div class="mt-8 pt-6 border-t border-gray-100">
+    <a href="/news/" class="text-sm font-semibold text-blue-600 hover:underline">Back to News Feed</a>
+  </div>
+</article>
+
   </main>
 
   <footer
@@ -46,6 +62,7 @@
       document.documentElement.classList.remove('dark');
     }
 
+    // Toggle setting on button click
     toggleBtn.addEventListener('click', () => {
       if (document.documentElement.classList.contains('dark')) {
         document.documentElement.classList.remove('dark');
