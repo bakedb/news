@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or "BeanNet News" }}</title>
 
-  <!-- 1. Run theme check BEFORE rendering CSS to prevent white flash -->
+
   <script>
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
@@ -15,7 +15,6 @@
     }
   </script>
 
-  <!-- 2. Tailwind CDN with explicit config -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
